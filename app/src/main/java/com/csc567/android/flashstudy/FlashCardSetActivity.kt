@@ -9,6 +9,8 @@ import androidx.recyclerview.widget.RecyclerView
 
 class FlashCardSetActivity : AppCompatActivity() {
 
+    private lateinit var quizButton: Button
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_flash_card_set)
@@ -20,6 +22,14 @@ class FlashCardSetActivity : AppCompatActivity() {
         flashCardRecyclerView.adapter = FlashCardAdapter(cards)
         flashCardRecyclerView.layoutManager = LinearLayoutManager(this)
         flashCardRecyclerView.setHasFixedSize(true)
+
+        quizButton = findViewById(R.id.quiz_button)
+
+        quizButton.setOnClickListener {
+            val intent = Intent(this, QuizActivity::class.java)
+            
+            startActivity(intent)
+        }
 
     }
 
