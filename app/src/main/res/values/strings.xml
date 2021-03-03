@@ -3,6 +3,7 @@
     <string name="next_button">Next</string>
     <string name="previous_button">Previous</string>
     <string name="quiz_button">Quiz Me!</string>
+    <string name="submit_button">Submit</string>
 
     <string-array name="flash_card_sets">
         <item>Exam 1</item>

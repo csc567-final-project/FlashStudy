@@ -14,6 +14,7 @@ class FlashCardSetActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_flash_card_set)
+        title = "Flash Card Set"
 
         val cards = getDummyData(10)
 
@@ -27,7 +28,7 @@ class FlashCardSetActivity : AppCompatActivity() {
 
         quizButton.setOnClickListener {
             val intent = Intent(this, QuizActivity::class.java)
-            
+
             startActivity(intent)
         }
 
