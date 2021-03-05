@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:title="@string/home"
+            android:icon="@drawable/flashhome"/>
+        <item
+            android:id="@+id/nav_class"
+            android:title="@string/classes"
+            android:icon="@drawable/flashclass" />
+        <item
+            android:id="@+id/nav_card"
+            android:title="@string/cards"
+            android:icon="@drawable/flashcard" />
+        <item
+            android:id="@+id/nav_score"
+            android:title="@string/scores"
+            android:icon="@drawable/flashscore" />
+    </group>
+</menu>

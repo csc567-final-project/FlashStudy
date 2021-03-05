@@ -17,4 +17,13 @@
         <item>Exam 9</item>
         <item>Exam 10</item>
     </string-array>
+
+    <string name="dashboard">Dashboard</string>
+    <string name="menu">Menu</string>
+    <string name="home">Home</string>
+    <string name="classes">Classes</string>
+    <string name="cards">Cards</string>
+    <string name="scores">Score</string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
 </resources>
