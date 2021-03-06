@@ -13,7 +13,10 @@ local.properties
 # Signing files
 .signing/
 
+.DS_Store
+
 # User-specific configurations
+.idea/caches/
 .idea/libraries/
 .idea/workspace.xml
 .idea/tasks.xml

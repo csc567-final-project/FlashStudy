@@ -4,21 +4,41 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 
-class CourseActivity : AppCompatActivity() {
+class CourseActivity : AppCompatActivity(), CourseAdapter.OnItemClickListener {
 
-    private lateinit var goToFlashCardSetButton: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_course)
+        title = "My Courses"
 
-        goToFlashCardSetButton = findViewById(R.id.flash_card_set_page_button)
+        val courses = getDummyData(5)
 
-        goToFlashCardSetButton.setOnClickListener {
-            // Takes you to the flash card set page with the list of Flash Cards
-            val intent = Intent(this, FlashCardSetActivity::class.java)
-            startActivity(intent)
+        val courseRecyclerView: RecyclerView = findViewById(R.id.course_recycler)
+
+        courseRecyclerView.adapter = CourseAdapter(courses, this)
+        courseRecyclerView.layoutManager = LinearLayoutManager(this)
+        courseRecyclerView.setHasFixedSize(true)
+
+    }
+
+    private fun getDummyData(size: Int): List<Course> {
+        val list = ArrayList<Course>()
+
+        for (i in 0 until size) {
+            val course = Course("CSC 100", "Intro to Computer Science")
+            list += course
         }
+
+        return list
+    }
+
+    override fun onItemClick(position: Int) {
+        var intent = Intent(this, FlashCardSetActivity::class.java)
+
+        startActivity(intent)
     }
 }
