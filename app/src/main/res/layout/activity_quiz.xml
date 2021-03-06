@@ -4,33 +4,40 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/nord0"
     tools:context=".QuizActivity">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
 
         <TextView
-            android:text="What is the answer to the current Question?"
-            android:layout_width="wrap_content"
             android:id="@+id/question_text"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="24dp" />
+            android:padding="24dp"
+            android:text="What is the answer to the current Question?"
+            android:textColor="@color/nord5" />
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/answer_input"
             android:layout_width="200dp"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:background="@color/nord5" />
 
         <Button
             android:id="@+id/submit_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/submit_button"
+            android:backgroundTint="@color/nord8"
+            android:textColor="@color/nord5"
             android:drawableEnd="@drawable/arrow_right"
-            android:drawablePadding="4dp" />
+            android:drawablePadding="4dp"
+            android:text="@string/submit_button"/>
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -39,20 +46,25 @@
 
             <Button
                 android:id="@+id/previous_button"
-                android:layout_width="wrap_content"
+                android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="2dp"
-                android:text="@string/previous_button"
                 android:drawableLeft="@drawable/arrow_left"
-                android:drawablePadding="4dp" />
+                android:drawablePadding="4dp"
+                android:backgroundTint="@color/nord8"
+                android:textColor="@color/nord5"
+                android:text="@string/previous_button" />
 
             <Button
                 android:id="@+id/next_button"
-                android:layout_width="wrap_content"
+                android:layout_width="150dp"
                 android:layout_height="wrap_content"
-                android:text="@string/next_button"
                 android:drawableEnd="@drawable/arrow_right"
-                android:drawablePadding="4dp" />
+                android:drawablePadding="4dp"
+                android:backgroundTint="@color/nord8"
+                android:textColor="@color/nord5"
+                android:padding="4dp"
+                android:text="@string/next_button" />
         </LinearLayout>
 
     </LinearLayout>

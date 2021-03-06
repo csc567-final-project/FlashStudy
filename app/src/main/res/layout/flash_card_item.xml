@@ -2,7 +2,8 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="4dp">
+    android:layout_margin="4dp"
+    android:backgroundTint="@color/nord10">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -22,7 +23,7 @@
                 android:layout_weight=".50"
                 android:layout_marginEnd="8dp"
                 android:text="Question"
-                android:textColor="@color/black"/>
+                android:textColor="@color/nord5"/>
 
             <TextView
                 android:id="@+id/flash_card_answer_view"
@@ -30,7 +31,7 @@
                 android:layout_height="50dp"
                 android:layout_weight=".50"
                 android:text="Answer"
-                android:textColor="@color/black"/>
+                android:textColor="@color/nord5"/>
         </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
