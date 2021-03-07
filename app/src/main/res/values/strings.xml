@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">FlashStudy</string>
+    <string name = "set1">CSC 130 test 1</string>
+    <string name="set2">CSC 130 test 2</string>
+    <string name="set3">CSC 130 test 3</string>
+    <string name="set4">CSC 130 final</string>
 </resources>
