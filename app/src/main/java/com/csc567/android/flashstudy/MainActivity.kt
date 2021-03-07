@@ -1,5 +1,6 @@
 package com.csc567.android.flashstudy
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
@@ -33,12 +34,14 @@ class MainActivity : AppCompatActivity() {
             when(it.itemId) {
                 R.id.nav_home -> Toast.makeText(applicationContext, "Home",
                     Toast.LENGTH_SHORT).show()
-                R.id.nav_class -> Toast.makeText(applicationContext, "Classes",
-                    Toast.LENGTH_SHORT).show()
-                R.id.nav_card -> Toast.makeText(applicationContext, "Cards",
-                    Toast.LENGTH_SHORT).show()
-                R.id.nav_score -> Toast.makeText(applicationContext, "Scores",
-                    Toast.LENGTH_SHORT).show()
+                R.id.nav_class -> {
+                    var intent = Intent(this, CourseActivity::class.java)
+                    startActivity(intent)
+                }
+                R.id.nav_card -> {
+                    var intent = Intent(this, FlashCardSetActivity::class.java)
+                    startActivity(intent)
+                }
             }
             true
         }

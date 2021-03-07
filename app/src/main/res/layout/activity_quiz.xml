@@ -37,6 +37,7 @@
             android:textColor="@color/nord5"
             android:drawableEnd="@drawable/arrow_right"
             android:drawablePadding="4dp"
+            android:textStyle="bold"
             android:text="@string/submit_button"/>
 
         <LinearLayout
@@ -53,6 +54,7 @@
                 android:drawablePadding="4dp"
                 android:backgroundTint="@color/nord8"
                 android:textColor="@color/nord5"
+                android:textStyle="bold"
                 android:text="@string/previous_button" />
 
             <Button
@@ -64,6 +66,7 @@
                 android:backgroundTint="@color/nord8"
                 android:textColor="@color/nord5"
                 android:padding="4dp"
+                android:textStyle="bold"
                 android:text="@string/next_button" />
         </LinearLayout>
 

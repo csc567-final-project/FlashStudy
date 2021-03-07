@@ -1,16 +1,12 @@
 package com.csc567.android.flashstudy
-import android.content.Context
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import android.widget.Toast
-import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 
 
-class FlashSetAdapter(private val listener: OnFlashSetItemClickListener, private val flashSetList: List<FlashSetItem>):
+class FlashSetAdapter(private val listener: OnItemClickListener, private val flashSetList: List<FlashSet>):
         RecyclerView.Adapter<FlashSetAdapter.FlashSetViewHolder>() {
     inner class FlashSetViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener{
         private lateinit var  goToFlashCards: View
@@ -26,7 +22,7 @@ class FlashSetAdapter(private val listener: OnFlashSetItemClickListener, private
             }
         }
     }
-    interface OnFlashSetItemClickListener {
+    interface OnItemClickListener {
         fun onItemClick(position: Int)
     }
 

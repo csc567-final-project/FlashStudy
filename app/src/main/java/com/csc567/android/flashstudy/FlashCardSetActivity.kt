@@ -6,27 +6,28 @@ import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
-class FlashCardSetActivity : AppCompatActivity(), FlashSetAdapter.OnFlashSetItemClickListener{
+class FlashCardSetActivity : AppCompatActivity(), FlashSetAdapter.OnItemClickListener{
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_flash_card_set)
+        title = "Flash Card Sets"
 
-        val flashsetlist = getDummyData(4)
+        val flashsetlist = getDummyData(20)
 
-        val flashSetRecyclerView: RecyclerView = findViewById(R.id.recycler_view)
+        val flashSetRecyclerView: RecyclerView = findViewById(R.id.flash_card_set_recycler)
 
         flashSetRecyclerView.adapter = FlashSetAdapter(this, flashsetlist)
         flashSetRecyclerView.layoutManager = LinearLayoutManager(this)
         flashSetRecyclerView.setHasFixedSize(true)
 
     }
-    private fun getDummyData(size: Int): List<FlashSetItem> {
-        val list = ArrayList<FlashSetItem>()
+    private fun getDummyData(size: Int): List<FlashSet> {
+        val list = ArrayList<FlashSet>()
 
         for (i in 0 until size) {
-            val flash_set= FlashSetItem("CSC 130 test " + (i + 1))
+            val flash_set= FlashSet("CSC 130 test " + (i + 1))
             list += flash_set
         }
 
@@ -34,7 +35,7 @@ class FlashCardSetActivity : AppCompatActivity(), FlashSetAdapter.OnFlashSetItem
     }
 
     override fun onItemClick(position: Int) {
-        var intent = Intent(this, CourseActivity::class.java)
+        var intent = Intent(this, FlashCardActivity::class.java)
 
         startActivity(intent)
     }

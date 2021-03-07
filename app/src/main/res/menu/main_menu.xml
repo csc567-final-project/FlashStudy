@@ -14,9 +14,5 @@
             android:id="@+id/nav_card"
             android:title="@string/cards"
             android:icon="@drawable/flashcard" />
-        <item
-            android:id="@+id/nav_score"
-            android:title="@string/scores"
-            android:icon="@drawable/flashscore" />
     </group>
 </menu>
