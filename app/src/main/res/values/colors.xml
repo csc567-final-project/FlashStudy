@@ -14,20 +14,20 @@
     <color name="nord1">#3B4252</color>
     <color name="nord2">#434C5E</color>
     <color name="nord3">#4C566A</color> //lightest
-    <!-- Snow Storm -->
+        <!-- Snow Storm -->
     <color name="nord4">#D8DEE9</color> //silver white
     <color name="nord5">#E5E9F0</color> //cream
     <color name="nord6">#ECEFF4</color> //pure white
-    <!-- Frost -->
+        <!-- Frost -->
     <color name="nord7">#8FBCBB</color> //seafoam
     <color name="nord8">#88C0D0</color> //light blue
     <color name="nord9">#81A1C1</color> //indigo
     <color name="nord10">#5E81AC</color> //blue
-    <!-- Aurora -->
+        <!-- Aurora -->
     <color name="nord11">#BF616A</color> //red
     <color name="nord12">#D08770</color> //orange
     <color name="nord13">#EBCB8B</color> //yellow
     <color name="nord14">#A3BE8C</color> //green
     <color name="nord15">#B48EAD</color> //purple
-    <!-- more info at nordtheme.com -->
+        <!-- more info at nordtheme.com -->
 </resources>

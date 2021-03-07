@@ -21,4 +21,13 @@
     <string name="set2">CSC 130 test 2</string>
     <string name="set3">CSC 130 test 3</string>
     <string name="set4">CSC 130 final</string>
+
+    <string name="dashboard">Dashboard</string>
+    <string name="menu">Menu</string>
+    <string name="home">Home</string>
+    <string name="classes">Classes</string>
+    <string name="cards">Cards</string>
+    <string name="scores">Score</string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
 </resources>
