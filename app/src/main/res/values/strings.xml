@@ -1,3 +1,20 @@
 <resources>
     <string name="app_name">FlashStudy</string>
+    <string name="next_button">Next</string>
+    <string name="previous_button">Previous</string>
+    <string name="quiz_button">Quiz Me!</string>
+    <string name="submit_button">Submit</string>
+
+    <string-array name="flash_card_sets">
+        <item>Exam 1</item>
+        <item>Exam 2</item>
+        <item>Exam 3</item>
+        <item>Exam 4</item>
+        <item>Exam 5</item>
+        <item>Exam 6</item>
+        <item>Exam 7</item>
+        <item>Exam 8</item>
+        <item>Exam 9</item>
+        <item>Exam 10</item>
+    </string-array>
 </resources>

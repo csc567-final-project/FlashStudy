@@ -7,17 +7,17 @@ import android.widget.Button
 
 class FlashCardSetActivity : AppCompatActivity() {
 
-    private lateinit var goToQuizButton: Button
+    private lateinit var goToCardsButton: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_flash_card_set)
 
-        goToQuizButton = findViewById(R.id.quiz_page_button)
+        goToCardsButton = findViewById(R.id.flash_card_page_button)
 
-        goToQuizButton.setOnClickListener {
-            // Takes you to the quiz page
-            val intent = Intent(this, QuizActivity::class.java)
+        goToCardsButton.setOnClickListener {
+            var intent = Intent(this, FlashCardActivity::class.java)
+
             startActivity(intent)
         }
     }
