@@ -1,16 +1,19 @@
 package com.csc567.android.flashstudy
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 
 
-class FlashSetAdapter(private val listener: FlashCardSetActivity, private val flashSetList: List<FlashSetItem>):
+class FlashSetAdapter(private val listener: OnFlashSetItemClickListener, private val flashSetList: List<FlashSetItem>):
         RecyclerView.Adapter<FlashSetAdapter.recyclerViewHolder>() {
     inner class FlashSetViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener{
+        private lateinit var  goToFlashCards: View
         init {
             itemView.setOnClickListener(this)
         }
@@ -35,11 +38,6 @@ class FlashSetAdapter(private val listener: FlashCardSetActivity, private val fl
     override fun onBindViewHolder(holder: recyclerViewHolder, position: Int) {
         val currentItem = flashSetList[position]
         holder.textView1.text = currentItem.textResource
-        holder.itemView.setOnClickListener(View.OnClickListener(){
-             fun onClick(v: View){
-
-            }
-        });
     }
 
     override fun getItemCount() = flashSetList.size

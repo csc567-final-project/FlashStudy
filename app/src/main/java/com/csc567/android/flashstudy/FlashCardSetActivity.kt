@@ -6,7 +6,7 @@ import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
-class FlashCardSetActivity : AppCompatActivity() {
+class FlashCardSetActivity : AppCompatActivity(), FlashSetAdapter.OnFlashSetItemClickListener{
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,8 +33,8 @@ class FlashCardSetActivity : AppCompatActivity() {
         return list
     }
 
-    fun onItemClick(position: Int) {
-        var intent = Intent(this, FlashCardSetActivity::class.java)
+    override fun onItemClick(position: Int) {
+        var intent = Intent(this, CourseActivity::class.java)
 
         startActivity(intent)
     }
