@@ -27,7 +27,6 @@
             android:textSize="40sp"
             android:textColor="@color/nord5"/>
 
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.google.android.material.navigation.NavigationView
