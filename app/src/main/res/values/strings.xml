@@ -17,7 +17,7 @@
         <item>Exam 9</item>
         <item>Exam 10</item>
     </string-array>
-    <string name = "set1">CSC 130 test 1</string>
+    <string name="set1">CSC 130 test 1</string>
     <string name="set2">CSC 130 test 2</string>
     <string name="set3">CSC 130 test 3</string>
     <string name="set4">CSC 130 final</string>
@@ -30,4 +30,8 @@
     <string name="scores">Score</string>
     <string name="open">Open</string>
     <string name="close">Close</string>
+    <string name="course_code_label">Course Code</string>
+    <string name="course_code_hint">Enter course code.</string>
+    <string name="course_name_label">Course Name</string>
+    <string name="course_name_hint">Enter course name.</string>
 </resources>

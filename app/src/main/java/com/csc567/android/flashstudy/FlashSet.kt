@@ -1,3 +1,8 @@
 package com.csc567.android.flashstudy
 
-data class FlashSet (val textResource: String)
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+import java.util.*
+
+@Entity
+data class FlashSet (@PrimaryKey val id: UUID = UUID.randomUUID(), val textResource: String)

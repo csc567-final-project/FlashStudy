@@ -21,7 +21,7 @@ class FlashCardActivity : AppCompatActivity() {
         setContentView(R.layout.activity_flash_card)
         title = "CSC 567 - Exam 1"
 
-        val cards = getDummyData(10)
+        val cards = ArrayList<FlashCard>()
 
         val flashCardRecyclerView: RecyclerView = findViewById(R.id.flash_card_recycler)
 
@@ -68,17 +68,6 @@ class FlashCardActivity : AppCompatActivity() {
             true
         }
 
-    }
-
-    private fun getDummyData(size: Int): List<FlashCard> {
-        val list = ArrayList<FlashCard>()
-
-        for (i in 0 until size) {
-            val card = FlashCard("What is the Answer to this question?", "The Answer is this")
-            list += card
-        }
-
-        return list
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

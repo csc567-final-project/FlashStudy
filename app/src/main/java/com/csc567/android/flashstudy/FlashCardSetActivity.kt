@@ -19,7 +19,7 @@ class FlashCardSetActivity : AppCompatActivity(), FlashSetAdapter.OnItemClickLis
         setContentView(R.layout.activity_flash_card_set)
         title = "Flash Card Sets"
 
-        val flashsetlist = getDummyData(20)
+        val flashsetlist = ArrayList<FlashSet>()
 
         val flashSetRecyclerView: RecyclerView = findViewById(R.id.flash_card_set_recycler)
 
@@ -58,16 +58,6 @@ class FlashCardSetActivity : AppCompatActivity(), FlashSetAdapter.OnItemClickLis
             true
         }
 
-    }
-    private fun getDummyData(size: Int): List<FlashSet> {
-        val list = ArrayList<FlashSet>()
-
-        for (i in 0 until size) {
-            val flash_set= FlashSet("CSC 130 test " + (i + 1))
-            list += flash_set
-        }
-
-        return list
     }
 
     override fun onItemClick(position: Int) {
