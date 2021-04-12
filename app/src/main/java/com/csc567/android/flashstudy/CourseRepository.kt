@@ -19,7 +19,7 @@ class CourseRepository  private constructor(context: Context) {
     private val courseDao = database.courseDao()
 
     fun getCourses(): LiveData<List<Course>> = courseDao.getCourses()
-    fun insertCourse(course: Course): Long = courseDao.insertCourse(course)
+    fun insertCourse(course: Course) = courseDao.insertCourse(course)
 
     companion object {
         private var INSTANCE:CourseRepository?=null

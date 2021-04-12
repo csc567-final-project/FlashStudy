@@ -12,5 +12,5 @@ interface CourseDao {
     fun getCourses() : LiveData<List<Course>>
 
     @Insert
-    fun insertCourse(course: Course): Long
+    fun insertCourse(course: Course)
 }

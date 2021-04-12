@@ -68,29 +68,33 @@
                         style="?android:listSeparatorTextViewStyle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/course_code_label"/>
+                        android:text="@string/course_code_label"
+                        android:textColor="@color/nord4"/>
                     <EditText
                         android:id="@+id/course_code_input"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="@string/course_code_hint"/>
+                        android:hint="@string/course_code_hint"
+                        android:textColor="@color/nord4"/>
                     <TextView
                         style="?android:listSeparatorTextViewStyle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/course_name_label"/>
+                        android:text="@string/course_name_label"
+                        android:textColor="@color/nord4"/>
                     <EditText
                         android:id="@+id/course_name_input"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="@string/course_name_hint"/>
+                        android:hint="@string/course_name_hint"
+                        android:textColor="@color/nord4"/>
                     <Button
                         android:id="@+id/create_course_window_button"
                         style="?android:attr/borderlessButtonStyle"
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
                         android:background="@color/nord2"
-                        android:text="ok"
+                        android:text="Save"
                         android:textAllCaps="false"
                         android:textColor="#FFFFFF"
                         android:textSize="20sp"

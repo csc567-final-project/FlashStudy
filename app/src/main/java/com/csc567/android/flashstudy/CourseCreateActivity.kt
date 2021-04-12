@@ -24,9 +24,15 @@ class CourseCreateActivity : AppCompatActivity() {
         saveCourseButton = findViewById(R.id.create_course_window_button)
 
         saveCourseButton.setOnClickListener {
+            var currentActivity = this
             var course = Course(courseCode = courseCodeInput.text.toString(), courseName = courseNameInput.text.toString())
-            var insertedId: Long = courseRepository.insertCourse(course)
-            finishActivity(0)
+            val thread = Thread {
+                courseRepository.insertCourse(course)
+                currentActivity.finishActivity(0)
+                var intent = Intent(currentActivity, CourseActivity::class.java)
+                startActivity(intent)
+            }
+            thread.start()
         }
 
     }

@@ -20,7 +20,7 @@ import com.google.android.material.navigation.NavigationView
 import java.util.*
 import kotlin.collections.ArrayList
 
-class CourseActivity : AppCompatActivity(), CourseAdapter.OnItemClickListener {
+class CourseActivity : AppCompatActivity(), CourseFragment.Callbacks {
 
     lateinit var toggle: ActionBarDrawerToggle
 
@@ -35,23 +35,17 @@ class CourseActivity : AppCompatActivity(), CourseAdapter.OnItemClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_course)
-        title = "My Courses"
 
-        courseRecyclerView = findViewById(R.id.course_recycler)
-        courseRecyclerView.layoutManager = LinearLayoutManager(this)
-
-        courseViewModel.courseListLiveData.observe(this, androidx.lifecycle.Observer { courses ->
-            updateUI(courses)
-        })
-
-        courseRecyclerView.setHasFixedSize(true)
-
-        addCourseButton = findViewById(R.id.add_course_button)
-        addCourseButton.setOnClickListener {
-            var intent = Intent(this, CourseCreateActivity::class.java)
-            startActivity(intent)
+        val currentFragment = supportFragmentManager.findFragmentById(R.id.fragment_container)
+        if (currentFragment == null) {
+            val fragment = CourseFragment.newInstance()
+            supportFragmentManager
+                .beginTransaction()
+                .add(R.id.fragment_container, fragment)
+                .commit()
         }
 
+        /*
         val toolbar = findViewById<androidx.appcompat.widget.Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
 
@@ -81,15 +75,10 @@ class CourseActivity : AppCompatActivity(), CourseAdapter.OnItemClickListener {
             }
             true
         }
-
+         */
     }
 
-    private fun updateUI(courses: List<Course>) {
-        adapter = CourseAdapter(courses, this)
-        courseRecyclerView.adapter = adapter
-    }
-
-    override fun onItemClick(position: Int) {
+    override fun onCourseSelected(crimeId: UUID) {
         var intent = Intent(this, FlashCardSetActivity::class.java)
 
         startActivity(intent)
