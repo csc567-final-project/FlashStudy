@@ -45,7 +45,7 @@ class CourseActivity : AppCompatActivity(), CourseFragment.Callbacks {
                 .commit()
         }
 
-        /*
+
         val toolbar = findViewById<androidx.appcompat.widget.Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
 
@@ -64,7 +64,7 @@ class CourseActivity : AppCompatActivity(), CourseFragment.Callbacks {
                     var intent = Intent(this, MainActivity::class.java)
                     startActivity(intent)
                 }
-                R.id.nav_class -> {
+                R.id.nav_course -> {
                     var intent = Intent(this, CourseActivity::class.java)
                     startActivity(intent)
                 }
@@ -75,7 +75,7 @@ class CourseActivity : AppCompatActivity(), CourseFragment.Callbacks {
             }
             true
         }
-         */
+
     }
 
     override fun onCourseSelected(crimeId: UUID) {

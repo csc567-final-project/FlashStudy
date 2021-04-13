@@ -56,7 +56,7 @@ class FlashCardActivity : AppCompatActivity() {
                     var intent = Intent(this, MainActivity::class.java)
                     startActivity(intent)
                 }
-                R.id.nav_class -> {
+                R.id.nav_course -> {
                     var intent = Intent(this, CourseActivity::class.java)
                     startActivity(intent)
                 }
