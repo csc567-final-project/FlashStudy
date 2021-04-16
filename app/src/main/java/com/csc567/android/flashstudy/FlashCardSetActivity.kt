@@ -13,13 +13,14 @@ import com.google.android.material.navigation.NavigationView
 class FlashCardSetActivity : AppCompatActivity(), FlashSetAdapter.OnItemClickListener{
 
     lateinit var toggle: ActionBarDrawerToggle
+    lateinit var flashsetlist: ArrayList<FlashSet>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_flash_card_set)
         title = "Flash Card Sets"
 
-        val flashsetlist = ArrayList<FlashSet>()
+        flashsetlist = ArrayList<FlashSet>()
 
         val flashSetRecyclerView: RecyclerView = findViewById(R.id.flash_card_set_recycler)
 
@@ -60,9 +61,9 @@ class FlashCardSetActivity : AppCompatActivity(), FlashSetAdapter.OnItemClickLis
 
     }
 
-    override fun onItemClick(position: Int) {
+    override fun onItemClick(flashSet: FlashSet) {
         var intent = Intent(this, FlashCardActivity::class.java)
-
+        intent.putExtra("flashSetId", flashSet.id)
         startActivity(intent)
     }
 

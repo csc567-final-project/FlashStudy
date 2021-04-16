@@ -12,4 +12,5 @@ import com.csc567.android.flashstudy.FlashCard
 abstract class FlashStudyDatabase:RoomDatabase() {
 
     abstract fun courseDao(): CourseDao
+    abstract fun flashCardDao(): FlashCardDao
 }

@@ -10,17 +10,21 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.navigation.NavigationView
+import java.util.*
+import kotlin.collections.ArrayList
 
 class FlashCardActivity : AppCompatActivity() {
 
     private lateinit var quizButton: Button
     lateinit var toggle: ActionBarDrawerToggle
+    lateinit var flashSetId: UUID
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_flash_card)
         title = "CSC 567 - Exam 1"
 
+        flashSetId = intent.getStringExtra("flashSetId") as UUID
         val cards = ArrayList<FlashCard>()
 
         val flashCardRecyclerView: RecyclerView = findViewById(R.id.flash_card_recycler)
