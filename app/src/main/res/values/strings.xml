@@ -36,6 +36,10 @@
     <string name="course_code_hint">Enter course code.</string>
     <string name="course_name_label">Course Name</string>
     <string name="course_name_hint">Enter course name.</string>
+    <string name="flash_question_label">Question</string>
+    <string name="flash_question_hint">Enter question.</string>
+    <string name="flash_answer_label">Answer</string>
+    <string name="flash_answer_hint">Enter answer.</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

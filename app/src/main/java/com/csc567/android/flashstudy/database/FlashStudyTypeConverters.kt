@@ -3,7 +3,7 @@ package com.csc567.android.flashstudy.database
 import androidx.room.TypeConverter
 import java.util.*
 
-class FlashStudyTypeConverters {
+class  FlashStudyTypeConverters {
     @TypeConverter
     fun fromUUID(uuid: UUID?): String? {
         return uuid?.toString()

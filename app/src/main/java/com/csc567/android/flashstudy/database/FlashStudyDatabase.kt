@@ -14,4 +14,5 @@ abstract class FlashStudyDatabase:RoomDatabase() {
     abstract fun courseDao(): CourseDao
 
     abstract fun flashSetDao(): FlashSetDao
+    abstract fun flashCardDao(): FlashCardDao
 }

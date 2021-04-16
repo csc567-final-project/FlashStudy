@@ -16,29 +16,12 @@ import java.util.*
 class FlashCardSetActivity : AppCompatActivity(), FlashSetFragment.Callbacks{
 
     lateinit var toggle: ActionBarDrawerToggle
-    private var adapter: FlashSetAdapter? = null
     private val flashSetViewModel:FlashSetViewModel by lazy {
         ViewModelProvider(this).get(FlashSetViewModel::class.java)
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_flash_card_set)
-
-        val currentFragment = supportFragmentManager.findFragmentById(R.id.flash_set_fragment_container)
-        if (currentFragment == null) {
-            val fragment = FlashSetFragment.newInstance()
-            supportFragmentManager
-                    .beginTransaction()
-                    .add(R.id.flash_set_fragment_container, fragment)
-                    .commit()
-        }
-
-        /*
-        val toolbar = findViewById<androidx.appcompat.widget.Toolbar>(R.id.toolbar)
-        setSupportActionBar(toolbar)
-
-        val drawerLayout = findViewById<DrawerLayout>(R.id.drawer_layout)
-        val navView = findViewById<NavigationView>(R.id.nav_view)
 
         toggle = ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close)
         drawerLayout.addDrawerListener(toggle)

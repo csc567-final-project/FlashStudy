@@ -1,4 +1,3 @@
-package com.csc567.android.flashstudy
 
 import android.app.Application
 
@@ -7,5 +6,6 @@ class FlashStudyApplication: Application() {
         super.onCreate()
         CourseRepository.initialize(this)
         FlashSetRepository.initialize(this)
+        FlashCardRepository.initialize(this)
     }
 }
