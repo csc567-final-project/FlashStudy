@@ -33,9 +33,11 @@ class MainActivity : AppCompatActivity() {
 
         navView.setNavigationItemSelectedListener {
             when(it.itemId) {
-                R.id.nav_home -> Toast.makeText(applicationContext, "Home",
-                    Toast.LENGTH_SHORT).show()
-                R.id.nav_class -> {
+                R.id.nav_home -> {
+                    var intent = Intent(this, MainActivity::class.java)
+                    startActivity(intent)
+                }
+                R.id.nav_course -> {
                     var intent = Intent(this, CourseActivity::class.java)
                     startActivity(intent)
                 }
