@@ -11,6 +11,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FlashStudy">
         <activity android:name=".CourseCreateActivity"></activity>
+        <activity android:name=".FlashSetCreateActivity"></activity>
+
 
         <meta-data
             android:name="com.google.android.actions"
