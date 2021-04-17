@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.room.Room
 import com.csc567.android.flashstudy.database.FlashStudyDatabase
+import com.csc567.android.flashstudy.database.migration_1_2
 import java.lang.IllegalStateException
 
 private const val DATABASE_NAME = "flash-study-database"
@@ -14,7 +15,7 @@ class CourseRepository  private constructor(context: Context) {
             context.applicationContext,
             FlashStudyDatabase::class.java,
             DATABASE_NAME
-    ).build()
+    ).addMigrations(migration_1_2).build()
 
     private val courseDao = database.courseDao()
 
