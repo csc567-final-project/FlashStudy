@@ -26,12 +26,12 @@ class CourseActivity : AppCompatActivity(), CourseFragment.Callbacks {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_course)
 
-        val currentFragment = supportFragmentManager.findFragmentById(R.id.fragment_container)
+        val currentFragment = supportFragmentManager.findFragmentById(R.id.course_fragment_container)
         if (currentFragment == null) {
             val fragment = CourseFragment.newInstance()
             supportFragmentManager
                 .beginTransaction()
-                .add(R.id.fragment_container, fragment)
+                .add(R.id.course_fragment_container, fragment)
                 .commit()
         }
     }
@@ -43,7 +43,7 @@ class CourseActivity : AppCompatActivity(), CourseFragment.Callbacks {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        val currentFragment = supportFragmentManager.findFragmentById(R.id.fragment_container) as CourseFragment
+        val currentFragment = supportFragmentManager.findFragmentById(R.id.course_fragment_container) as CourseFragment
         if(currentFragment.toggle.onOptionsItemSelected(item)) {
             return true
         }

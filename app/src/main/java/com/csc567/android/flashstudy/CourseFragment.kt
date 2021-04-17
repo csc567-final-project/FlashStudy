@@ -76,7 +76,7 @@ class CourseFragment : Fragment() {
                     var intent = Intent(activity, MainActivity::class.java)
                     startActivity(intent)
                 }
-                R.id.nav_class -> {
+                R.id.nav_course -> {
                     var intent = Intent(activity, CourseActivity::class.java)
                     startActivity(intent)
                 }

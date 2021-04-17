@@ -40,6 +40,6 @@
     <string name="flash_question_hint">Enter question.</string>
     <string name="flash_answer_label">Answer</string>
     <string name="flash_answer_hint">Enter answer.</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="correct_toast">Correct!</string>
+    <string name="incorrect_toast">Incorrect!</string>
 </resources>
