@@ -47,7 +47,8 @@ class FlashCardActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if(toggle.onOptionsItemSelected(item)) {
+        val currentFragment = supportFragmentManager.findFragmentById(R.id.fragment_container) as CourseFragment
+        if(currentFragment.toggle.onOptionsItemSelected(item)) {
             return true
         }
         return super.onOptionsItemSelected(item)
