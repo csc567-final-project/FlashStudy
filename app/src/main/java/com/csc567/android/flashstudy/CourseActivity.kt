@@ -22,16 +22,6 @@ import kotlin.collections.ArrayList
 
 class CourseActivity : AppCompatActivity(), CourseFragment.Callbacks {
 
-    lateinit var toggle: ActionBarDrawerToggle
-
-    private lateinit var courseRecyclerView: RecyclerView
-    private lateinit var addCourseButton: FloatingActionButton
-    private var adapter: CourseAdapter? = null
-
-    private val courseViewModel:CourseViewModel by lazy {
-        ViewModelProvider(this).get(CourseViewModel::class.java)
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_course)
@@ -46,9 +36,9 @@ class CourseActivity : AppCompatActivity(), CourseFragment.Callbacks {
         }
     }
 
-    override fun onCourseSelected(crimeId: UUID) {
+    override fun onCourseSelected(courseId: UUID) {
         var intent = Intent(this, FlashCardSetActivity::class.java)
-
+        intent.putExtra("courseId", courseId)
         startActivity(intent)
     }
 

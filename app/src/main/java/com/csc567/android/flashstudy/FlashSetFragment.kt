@@ -10,7 +10,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -29,7 +31,10 @@ class FlashSetFragment : Fragment() {
 
     private lateinit var flashSetRecyclerView: RecyclerView
     private var adapter: FlashSetAdapter? = null
+    lateinit var toggle: ActionBarDrawerToggle
     private lateinit var addFlashSetButton: FloatingActionButton
+
+    private lateinit var flashSetListLiveData: LiveData<List<FlashSet>>
 
     private val flashSetViewModel:FlashSetViewModel by lazy {
         ViewModelProvider(this).get(FlashSetViewModel::class.java)
@@ -50,27 +55,64 @@ class FlashSetFragment : Fragment() {
         flashSetRecyclerView = view.findViewById(R.id.flash_set_recycler) as RecyclerView
         flashSetRecyclerView.layoutManager = LinearLayoutManager(context)
 
+
+
         addFlashSetButton = view.findViewById(R.id.add_flash_set_button)
-        addFlashSetButton.setOnClickListener {
-            var intent = Intent(activity, FlashSetCreateActivity::class.java)
-            startActivity(intent)
+
+        if (activity?.intent?.getSerializableExtra("courseId") != null) {
+            val courseId: UUID = activity?.intent?.getSerializableExtra("courseId") as UUID
+
+            flashSetListLiveData = flashSetViewModel.flashSetRepository.getCourseFlashSets(courseId)
+
+            addFlashSetButton.setOnClickListener {
+                var intent = Intent(activity, FlashSetCreateActivity::class.java)
+                intent.putExtra("courseId", courseId)
+                startActivity(intent)
+            }
+        } else {
+            flashSetListLiveData = flashSetViewModel.flashSetRepository.getFlashSets()
+        }
+
+        val toolbar = view.findViewById<androidx.appcompat.widget.Toolbar>(R.id.toolbar)
+        (activity as AppCompatActivity).setSupportActionBar(toolbar)
+
+        val drawerLayout = view.findViewById<DrawerLayout>(R.id.drawer_layout)
+        val navView = view.findViewById<NavigationView>(R.id.nav_view)
+
+        toggle = ActionBarDrawerToggle(activity, drawerLayout, R.string.open, R.string.close)
+        drawerLayout.addDrawerListener(toggle)
+        toggle.syncState()
+
+        (activity as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+        navView.setNavigationItemSelectedListener {
+            when(it.itemId) {
+                R.id.nav_home -> {
+                    var intent = Intent(activity, MainActivity::class.java)
+                    startActivity(intent)
+                }
+                R.id.nav_class -> {
+                    var intent = Intent(activity, CourseActivity::class.java)
+                    startActivity(intent)
+                }
+                R.id.nav_card -> {
+                    var intent = Intent(activity, FlashCardSetActivity::class.java)
+                    startActivity(intent)
+                }
+            }
+            true
         }
 
         return view
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        flashSetViewModel.flashSetListLiveData.observe(
+        flashSetListLiveData.observe(
             viewLifecycleOwner,
-            androidx.lifecycle.Observer { crimes ->
-                crimes?.let {
-                    updateUI(crimes)
+            androidx.lifecycle.Observer { flashSets ->
+                flashSets?.let {
+                    updateUI(flashSets)
                 }
             }
         )

@@ -15,20 +15,34 @@ import java.util.*
 
 class FlashCardSetActivity : AppCompatActivity(), FlashSetFragment.Callbacks{
 
+    lateinit var toggle: ActionBarDrawerToggle
+    lateinit var courseId: UUID
+    private val flashSetViewModel:FlashSetViewModel by lazy {
+        ViewModelProvider(this).get(FlashSetViewModel::class.java)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_flash_card_set)
 
+        val currentFragment = supportFragmentManager.findFragmentById(R.id.flash_set_fragment_container)
+        if (currentFragment == null) {
+            val fragment = FlashSetFragment.newInstance()
+            supportFragmentManager
+                .beginTransaction()
+                .add(R.id.flash_set_fragment_container, fragment)
+                .commit()
+        }
     }
 
-    override fun onFlashSetSelected(crimeId: UUID) {
-        var intent = Intent(this, FlashCardSetActivity::class.java)
-
+    override fun onFlashSetSelected(flashSetId: UUID) {
+        var intent = Intent(this, FlashCardActivity::class.java)
+        intent.putExtra("flashSetId", flashSetId)
         startActivity(intent)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        val currentFragment = supportFragmentManager.findFragmentById(R.id.fragment_container) as CourseFragment
+        val currentFragment = supportFragmentManager.findFragmentById(R.id.flash_set_fragment_container) as FlashSetFragment
         if(currentFragment.toggle.onOptionsItemSelected(item)) {
             return true
         }

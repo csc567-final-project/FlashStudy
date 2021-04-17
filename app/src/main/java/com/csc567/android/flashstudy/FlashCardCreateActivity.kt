@@ -17,7 +17,7 @@ class FlashCardCreateActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         overridePendingTransition(0, 0)
-        setContentView(R.layout.activity_course_create)
+        setContentView(R.layout.activity_flash_card_create)
 
         questionInput = findViewById(R.id.flash_question_input)
         answerInput = findViewById(R.id.flash_answer_input)
@@ -31,6 +31,7 @@ class FlashCardCreateActivity : AppCompatActivity() {
                 flashCardRepository.insertFlashCard(flashCard)
                 currentActivity.finishActivity(0)
                 var intent = Intent(currentActivity, FlashCardActivity::class.java)
+                intent.putExtra("flashSetId", flashSetId)
                 startActivity(intent)
             }
             thread.start()

@@ -58,7 +58,7 @@ class FlashCardFragment : Fragment() {
         }
 
         quizButton = view.findViewById(R.id.quiz_button)
-        addFlashCardButton.setOnClickListener {
+        quizButton.setOnClickListener {
             var intent = Intent(activity, QuizActivity::class.java)
             intent.putExtra("flashSetId", flashSetId)
             startActivity(intent)
