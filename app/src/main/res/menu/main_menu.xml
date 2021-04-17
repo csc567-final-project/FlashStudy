@@ -7,9 +7,9 @@
             android:title="@string/home"
             android:icon="@drawable/flashhome"/>
         <item
-            android:id="@+id/nav_class"
-            android:title="@string/classes"
-            android:icon="@drawable/flashclass" />
+            android:id="@+id/nav_course"
+            android:title="@string/courses"
+            android:icon="@drawable/flashcourse" />
         <item
             android:id="@+id/nav_card"
             android:title="@string/cards"
