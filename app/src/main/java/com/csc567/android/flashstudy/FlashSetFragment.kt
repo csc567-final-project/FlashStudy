@@ -51,8 +51,10 @@ class FlashSetFragment : Fragment() {
         flashSetRecyclerView.layoutManager = LinearLayoutManager(context)
 
         addFlashSetButton = view.findViewById(R.id.add_flash_set_button)
+        val courseId: UUID = activity?.intent?.getSerializableExtra("courseId") as UUID
         addFlashSetButton.setOnClickListener {
             var intent = Intent(activity, FlashSetCreateActivity::class.java)
+            intent.putExtra("courseId", courseId)
             startActivity(intent)
         }
 

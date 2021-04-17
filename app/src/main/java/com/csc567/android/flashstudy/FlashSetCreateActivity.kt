@@ -23,7 +23,8 @@ class FlashSetCreateActivity : AppCompatActivity() {
 
         saveFlashSetButton.setOnClickListener {
             var currentActivity = this
-            var flashSet = FlashSet(flashSetName = flashSetNameInput.text.toString())
+            var courseId: UUID = intent.getSerializableExtra("courseId") as UUID
+            var flashSet = FlashSet(flashSetName = flashSetNameInput.text.toString(), courseId = courseId)
             val thread = Thread {
                 flashSetRepository.insertFlashSet(flashSet)
                 currentActivity.finishActivity(0)
