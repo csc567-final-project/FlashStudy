@@ -22,70 +22,29 @@ import kotlin.collections.ArrayList
 
 class CourseActivity : AppCompatActivity(), CourseFragment.Callbacks {
 
-    lateinit var toggle: ActionBarDrawerToggle
-
-    private lateinit var courseRecyclerView: RecyclerView
-    private lateinit var addCourseButton: FloatingActionButton
-    private var adapter: CourseAdapter? = null
-
-    private val courseViewModel:CourseViewModel by lazy {
-        ViewModelProvider(this).get(CourseViewModel::class.java)
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_course)
 
-        val currentFragment = supportFragmentManager.findFragmentById(R.id.fragment_container)
+        val currentFragment = supportFragmentManager.findFragmentById(R.id.course_fragment_container)
         if (currentFragment == null) {
             val fragment = CourseFragment.newInstance()
             supportFragmentManager
                 .beginTransaction()
-                .add(R.id.fragment_container, fragment)
+                .add(R.id.course_fragment_container, fragment)
                 .commit()
         }
-
-
-        val toolbar = findViewById<androidx.appcompat.widget.Toolbar>(R.id.toolbar)
-        setSupportActionBar(toolbar)
-
-        val drawerLayout = findViewById<DrawerLayout>(R.id.drawer_layout)
-        val navView = findViewById<NavigationView>(R.id.nav_view)
-
-        toggle = ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close)
-        drawerLayout.addDrawerListener(toggle)
-        toggle.syncState()
-
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
-        navView.setNavigationItemSelectedListener {
-            when(it.itemId) {
-                R.id.nav_home -> {
-                    var intent = Intent(this, MainActivity::class.java)
-                    startActivity(intent)
-                }
-                R.id.nav_course -> {
-                    var intent = Intent(this, CourseActivity::class.java)
-                    startActivity(intent)
-                }
-                R.id.nav_card -> {
-                    var intent = Intent(this, FlashCardSetActivity::class.java)
-                    startActivity(intent)
-                }
-            }
-            true
-        }
-
     }
 
-    override fun onCourseSelected(crimeId: UUID) {
+    override fun onCourseSelected(courseId: UUID) {
         var intent = Intent(this, FlashCardSetActivity::class.java)
-
+        intent.putExtra("courseId", courseId)
         startActivity(intent)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if(toggle.onOptionsItemSelected(item)) {
+        val currentFragment = supportFragmentManager.findFragmentById(R.id.course_fragment_container) as CourseFragment
+        if(currentFragment.toggle.onOptionsItemSelected(item)) {
             return true
         }
         return super.onOptionsItemSelected(item)

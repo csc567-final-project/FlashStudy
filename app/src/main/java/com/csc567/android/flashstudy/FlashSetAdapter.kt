@@ -13,17 +13,17 @@ class FlashSetAdapter(private val listener: OnItemClickListener, private val fla
         init {
             itemView.setOnClickListener(this)
         }
-        val flashSetNameView: TextView = itemView.findViewById(R.id.flashSetName)
+        val flashSetNameView: TextView = itemView.findViewById(R.id.flash_set_name)
 
         override fun onClick(v: View?) {
             val position = adapterPosition
             if (position != RecyclerView.NO_POSITION) {
-                listener.onItemClick(position)
+                listener.onItemClick(flashSetList[position])
             }
         }
     }
     interface OnItemClickListener {
-        fun onItemClick(position: Int)
+        fun onItemClick(flashSet: FlashSet)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FlashSetViewHolder {
@@ -33,7 +33,7 @@ class FlashSetAdapter(private val listener: OnItemClickListener, private val fla
 
     override fun onBindViewHolder(holder: FlashSetViewHolder, position: Int) {
         val currentItem = flashSetList[position]
-        holder.flashSetNameView.text = currentItem.textResource
+        holder.flashSetNameView.text = currentItem.flashSetName
     }
 
     override fun getItemCount() = flashSetList.size

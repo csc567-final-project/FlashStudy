@@ -10,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -30,6 +31,7 @@ class CourseFragment : Fragment() {
     private lateinit var courseRecyclerView: RecyclerView
     private var adapter: CourseAdapter? = null
     private lateinit var addCourseButton: FloatingActionButton
+    lateinit var toggle: ActionBarDrawerToggle
 
     private val courseViewModel:CourseViewModel by lazy {
         ViewModelProvider(this).get(CourseViewModel::class.java)
@@ -54,6 +56,36 @@ class CourseFragment : Fragment() {
         addCourseButton.setOnClickListener {
             var intent = Intent(activity, CourseCreateActivity::class.java)
             startActivity(intent)
+        }
+
+        val toolbar = view.findViewById<androidx.appcompat.widget.Toolbar>(R.id.toolbar)
+        (activity as AppCompatActivity).setSupportActionBar(toolbar)
+
+        val drawerLayout = view.findViewById<DrawerLayout>(R.id.drawer_layout)
+        val navView = view.findViewById<NavigationView>(R.id.nav_view)
+
+        toggle = ActionBarDrawerToggle(activity, drawerLayout, R.string.open, R.string.close)
+        drawerLayout.addDrawerListener(toggle)
+        toggle.syncState()
+
+        (activity as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+        navView.setNavigationItemSelectedListener {
+            when(it.itemId) {
+                R.id.nav_home -> {
+                    var intent = Intent(activity, MainActivity::class.java)
+                    startActivity(intent)
+                }
+                R.id.nav_course -> {
+                    var intent = Intent(activity, CourseActivity::class.java)
+                    startActivity(intent)
+                }
+                R.id.nav_card -> {
+                    var intent = Intent(activity, FlashCardSetActivity::class.java)
+                    startActivity(intent)
+                }
+            }
+            true
         }
 
         return view
