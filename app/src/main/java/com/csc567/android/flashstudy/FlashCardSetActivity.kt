@@ -6,34 +6,22 @@ import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.drawerlayout.widget.DrawerLayout
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.navigation.NavigationView
+import java.util.*
 
-class FlashCardSetActivity : AppCompatActivity(), FlashSetAdapter.OnItemClickListener{
+class FlashCardSetActivity : AppCompatActivity(), FlashSetFragment.Callbacks{
 
     lateinit var toggle: ActionBarDrawerToggle
-    lateinit var flashsetlist: ArrayList<FlashSet>
-
+    private val flashSetViewModel:FlashSetViewModel by lazy {
+        ViewModelProvider(this).get(FlashSetViewModel::class.java)
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_flash_card_set)
-        title = "Flash Card Sets"
-
-        flashsetlist = ArrayList<FlashSet>()
-
-        val flashSetRecyclerView: RecyclerView = findViewById(R.id.flash_card_set_recycler)
-
-        flashSetRecyclerView.adapter = FlashSetAdapter(this, flashsetlist)
-        flashSetRecyclerView.layoutManager = LinearLayoutManager(this)
-        flashSetRecyclerView.setHasFixedSize(true)
-
-
-        val toolbar = findViewById<androidx.appcompat.widget.Toolbar>(R.id.toolbar)
-        setSupportActionBar(toolbar)
-
-        val drawerLayout = findViewById<DrawerLayout>(R.id.drawer_layout)
-        val navView = findViewById<NavigationView>(R.id.nav_view)
 
         toggle = ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close)
         drawerLayout.addDrawerListener(toggle)
@@ -58,12 +46,12 @@ class FlashCardSetActivity : AppCompatActivity(), FlashSetAdapter.OnItemClickLis
             }
             true
         }
-
+         */
     }
 
-    override fun onItemClick(flashSet: FlashSet) {
-        var intent = Intent(this, FlashCardActivity::class.java)
-        intent.putExtra("flashSetId", flashSet.id)
+    override fun onFlashSetSelected(crimeId: UUID) {
+        var intent = Intent(this, FlashCardSetActivity::class.java)
+
         startActivity(intent)
     }
 
@@ -73,6 +61,5 @@ class FlashCardSetActivity : AppCompatActivity(), FlashSetAdapter.OnItemClickLis
         }
         return super.onOptionsItemSelected(item)
     }
-
 
 }
