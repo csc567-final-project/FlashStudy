@@ -1,5 +1,5 @@
 # FlashStudy
-![FSlogo](/app/src/main/res/drawable/fs_logo_t.png)
+![FSlogo](/ad-files/FlashStudyLogoCircular.png)
 
 ___
 
