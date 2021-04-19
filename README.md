@@ -2,7 +2,7 @@
   <img src="https://github.com/csc567-final-project/FlashStudy/blob/main/ad-files/FlashStudyLogoCircular.png" width="250"> 
 </p>
 
-<b align="center">FlashStudy</b>
+<h1 align="center"><b>FlashStudy</b></h1>
 
 ___
 
