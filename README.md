@@ -1,5 +1,5 @@
 # FlashStudy
-![FSlogo](/ad-files/FlashStudyLogoCircular.png =200x200)
+<img src="ad-files/FlashStudyLogoCircular.png" width="200"
 
 ___
 
