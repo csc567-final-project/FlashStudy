@@ -1,5 +1,5 @@
 # FlashStudy
-- (insert logo here)
+![FSlogo](fs_logo_t.png)
 
 ___
 
