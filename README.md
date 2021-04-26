@@ -13,7 +13,7 @@ ___
 <img src="https://github.com/csc567-final-project/FlashStudy/blob/main/ad-files/flash_card_page.png" width="250">
 
 ## Quiz Yourself to See Your Progress
-- (insert screenshot of quiz page here)
+<img src="https://github.com/csc567-final-project/FlashStudy/blob/main/ad-files/quiz_page.png" width="250">
 
 
   
