@@ -16,7 +16,7 @@ class CourseRepository  private constructor(context: Context) {
             context.applicationContext,
             FlashStudyDatabase::class.java,
             DATABASE_NAME
-    ).addMigrations(migration_2_3).build()
+    ).addMigrations(migration_1_2, migration_2_3).build()
 
     private val courseDao = database.courseDao()
 
