@@ -30,24 +30,15 @@ class MainActivity : AppCompatActivity() {
 
         //cards
         val studyCard: CardView = findViewById(R.id.studyCard)
-        val quizCard: CardView = findViewById(R.id.quizCard)
         val coursesCard: CardView = findViewById(R.id.coursesCard)
-        val scoresCard: CardView = findViewById(R.id.scoresCard)
 
         studyCard.setOnClickListener {
             val intent = Intent(this, FlashCardSetActivity::class.java)
             startActivity(intent)
         }
-        quizCard.setOnClickListener {
-            val intent = Intent(this, FlashCardSetActivity::class.java)
-            startActivity(intent)
-        }
+
         coursesCard.setOnClickListener {
             val intent = Intent(this, CourseActivity::class.java)
-            startActivity(intent)
-        }
-        scoresCard.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
 
