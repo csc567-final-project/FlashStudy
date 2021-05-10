@@ -3,6 +3,7 @@
     <string name="next_button">Next</string>
     <string name="previous_button">Previous</string>
     <string name="quiz_button">Quiz Me!</string>
+    <string name="study_button">Study</string>
     <string name="submit_button">Submit</string>
 
     <string-array name="flash_card_sets">
@@ -21,8 +22,8 @@
     <string name="set2">CSC 130 test 2</string>
     <string name="set3">CSC 130 test 3</string>
     <string name="set4">CSC 130 final</string>
-    <string name= "flash_set_name">Flash set name</string>
-    <string name= "flash_set_name_hint">Enter Flash Card Set Name.</string>
+    <string name="flash_set_name">Flash set name</string>
+    <string name="flash_set_name_hint">Enter Flash Card Set Name.</string>
 
     <string name="dashboard">Dashboard</string>
     <string name="menu">Menu</string>

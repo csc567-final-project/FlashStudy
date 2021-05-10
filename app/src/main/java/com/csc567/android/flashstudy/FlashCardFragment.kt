@@ -30,6 +30,7 @@ class FlashCardFragment : Fragment() {
     private lateinit var addFlashCardButton: FloatingActionButton
     private lateinit var flashCardListLiveData: LiveData<List<FlashCard>>
     private lateinit var quizButton: Button
+    private lateinit var studyButton: Button
     lateinit var toggle: ActionBarDrawerToggle
 
     private val flashCardViewModel:FlashCardViewModel by lazy {
@@ -60,6 +61,13 @@ class FlashCardFragment : Fragment() {
         quizButton = view.findViewById(R.id.quiz_button)
         quizButton.setOnClickListener {
             var intent = Intent(activity, QuizActivity::class.java)
+            intent.putExtra("flashSetId", flashSetId)
+            startActivity(intent)
+        }
+
+        studyButton = view.findViewById(R.id.study_button)
+        studyButton.setOnClickListener {
+            var intent = Intent(activity, StudyActivity::class.java)
             intent.putExtra("flashSetId", flashSetId)
             startActivity(intent)
         }
